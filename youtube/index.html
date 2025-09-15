@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Clone</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="header-left">
+            <button class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="logo">
+                <i class="fab fa-youtube"></i>
+                <span>YouTube</span>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="검색">
+                <button class="search-btn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <button class="mic-btn">
+                <i class="fas fa-microphone"></i>
+            </button>
+        </div>
+
+        <div class="header-right">
+            <button class="icon-btn">
+                <i class="fas fa-video"></i>
+            </button>
+            <button class="icon-btn">
+                <i class="fas fa-bell"></i>
+            </button>
+            <button class="profile-btn">
+                <img src="assets/images/profile.jpg" alt="프로필" class="profile-img">
+            </button>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-item active">
+                    <i class="fas fa-home"></i>
+                    <span>홈</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-compass"></i>
+                    <span>탐색</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-play-circle"></i>
+                    <span>Shorts</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-folder"></i>
+                    <span>구독</span>
+                </a>
+            </div>
+
+            <hr class="sidebar-divider">
+
+            <div class="sidebar-section">
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-history"></i>
+                    <span>기록</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-play"></i>
+                    <span>내 동영상</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-clock"></i>
+                    <span>나중에 볼 동영상</span>
+                </a>
+                <a href="#" class="sidebar-item">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span>좋아요 표시한 동영상</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="content">
+            <div class="video-grid">
+                <!-- Video Item 1 -->
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/thumbnail1.jpg" alt="썸네일">
+                        <div class="video-duration">12:34</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <img src="assets/images/channel1.jpg" alt="채널">
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">웹 개발 기초부터 고급까지 완벽 가이드</h3>
+                            <p class="channel-name">코딩하는판다</p>
+                            <p class="video-stats">조회수 1.2만회 • 2일 전</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 2 -->
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/thumbnail2.jpg" alt="썸네일">
+                        <div class="video-duration">8:45</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <img src="assets/images/channel2.jpg" alt="채널">
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">JavaScript ES6+ 최신 문법 정리</h3>
+                            <p class="channel-name">개발자김철수</p>
+                            <p class="video-stats">조회수 5.8만회 • 1주 전</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 3 -->
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/thumbnail3.jpg" alt="썸네일">
+                        <div class="video-duration">15:22</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <img src="assets/images/channel3.jpg" alt="채널">
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">React 프로젝트 처음부터 끝까지</h3>
+                            <p class="channel-name">웹개발자유진</p>
+                            <p class="video-stats">조회수 3.4만회 • 3일 전</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 4 -->
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/thumbnail4.jpg" alt="썸네일">
+                        <div class="video-duration">20:10</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <img src="assets/images/channel4.jpg" alt="채널">
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">CSS Grid와 Flexbox 마스터하기</h3>
+                            <p class="channel-name">디자인개발자이민수</p>
+                            <p class="video-stats">조회수 2.1만회 • 5일 전</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 5 -->
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/thumbnail5.jpg" alt="썸네일">
+                        <div class="video-duration">11:56</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <img src="assets/images/channel5.jpg" alt="채널">
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">Node.js 백엔드 개발 입문</h3>
+                            <p class="channel-name">풀스택개발자박영희</p>
+                            <p class="video-stats">조회수 4.7만회 • 1주 전</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Item 6 -->
+                <div class="video-item">
+                    <div class="video-thumbnail">
+                        <img src="assets/images/thumbnail6.jpg" alt="썸네일">
+                        <div class="video-duration">18:33</div>
+                    </div>
+                    <div class="video-info">
+                        <div class="channel-avatar">
+                            <img src="assets/images/channel6.jpg" alt="채널">
+                        </div>
+                        <div class="video-details">
+                            <h3 class="video-title">데이터베이스 설계 핵심 원리</h3>
+                            <p class="channel-name">DB전문가최현우</p>
+                            <p class="video-stats">조회수 6.2만회 • 4일 전</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
