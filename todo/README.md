@@ -26,14 +26,14 @@ todo/
 ## 구현된 기능
 
 ### ✅ 완료된 작업
-- [x] 프로젝트 초기 세팅 및 디렉토리 구성
-- [x] 데이터베이스 스키마 설계
-- [x] React 컴포넌트 구성
-- [x] API 라우팅 설계 및 구현
-- [x] 상태관리 및 이벤트 처리 구현
-- [x] CSS 스타일링 및 UI 디자인
-- [x] 기능 점검 및 디버깅
-- [x] 결과물 화면설계서, 발표자료 작성
+- [ ] 프로젝트 초기 세팅 및 디렉토리 구성
+- [ ] 데이터베이스 스키마 설계
+- [ ] React 컴포넌트 구성
+- [ ] API 라우팅 설계 및 구현
+- [ ] 상태관리 및 이벤트 처리 구현
+- [ ] CSS 스타일링 및 UI 디자인
+- [ ] 기능 점검 및 디버깅
+- [ ] 결과물 화면설계서, 발표자료 작성
 
 ### 주요 기능
 
@@ -132,48 +132,3 @@ GET    /api/todos/stats    # TODO 통계 조회
 - Node.js 16+
 - MongoDB 5+
 - npm 또는 yarn
-
-### 1. 저장소 클론
-```bash
-git clone [repository-url]
-cd todo
-```
-
-### 2. 의존성 설치
-```bash
-# 서버 의존성
-npm install
-
-# 클라이언트 의존성
-cd client
-npm install
-```
-
-### 3. 환경 설정
-```bash
-# server/.env 파일 생성
-PORT=5000
-MONGODB_URI=mongodb://localhost:27017/todoapp
-NODE_ENV=development
-```
-
-### 4. MongoDB 실행
-```bash
-# MongoDB 서비스 시작
-mongod
-```
-
-### 5. 애플리케이션 실행
-```bash
-# 터미널 1: 백엔드 서버 실행
-cd server
-node app.js
-
-# 터미널 2: 프론트엔드 개발 서버 실행
-cd client
-npm run dev
-```
-
-### 6. 브라우저에서 확인
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000
