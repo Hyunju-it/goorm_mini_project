@@ -57,24 +57,64 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Handle placeholder images
+    // Enhanced image handling with better error recovery
     const images = document.querySelectorAll('img');
     images.forEach(img => {
+        // Add loading class initially
+        img.classList.add('loading');
+
+        img.addEventListener('load', function() {
+            this.classList.remove('loading');
+            this.style.opacity = '1';
+        });
+
         img.addEventListener('error', function() {
-            // Create placeholder with gradient background
-            this.style.backgroundColor = '#f0f0f0';
-            this.style.display = 'flex';
-            this.style.alignItems = 'center';
-            this.style.justifyContent = 'center';
+            this.classList.remove('loading');
+            console.log('Image failed to load:', this.src);
 
             if (this.classList.contains('profile-img')) {
-                this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTYiIGZpbGw9IiM2NjdlZWEiLz4KPHN2ZyB4PSI4IiB5PSI4IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0id2hpdGUiPgo8cGF0aCBkPSJNMTIgMTJjMi4yMSAwIDQtMS43OSA0LTRzLTEuNzktNC00LTQtNCAxLjc5LTQgNCAxLjc5IDQgNCA0em0wIDJjLTIuNjcgMC04IDEuMzQtOCA0djJoMTZ2LTJjMC0yLjY2LTUuMzMtNC04LTR6Ii8+Cjwvc3ZnPgo8L3N2Zz4K';
+                // Use a default profile image from Unsplash
+                this.src = 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=32&h=32&fit=crop&crop=face&auto=format&q=80';
             } else if (this.classList.contains('channel-avatar')) {
-                this.parentElement.innerHTML = '<div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 16px;">📺</div>';
-            } else {
-                this.parentElement.innerHTML = '<div style="width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 48px; border-radius: 12px;">📹</div>';
+                // Use a default avatar
+                this.src = 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=36&h=36&fit=crop&crop=face&auto=format&q=80';
+            } else if (this.parentElement.classList.contains('video-thumbnail')) {
+                // Use a default video thumbnail
+                this.src = 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=320&h=180&fit=crop&auto=format&q=80';
             }
+
+            // If even the fallback fails, create a styled placeholder
+            this.addEventListener('error', function() {
+                this.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+                this.style.color = 'white';
+                this.style.display = 'flex';
+                this.style.alignItems = 'center';
+                this.style.justifyContent = 'center';
+                this.style.fontSize = '24px';
+                this.innerHTML = '🎥';
+                this.removeAttribute('src');
+            }, { once: true });
         });
+
+        // Add intersection observer for lazy loading optimization
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            if (img.dataset.src) {
+                imageObserver.observe(img);
+            }
+        }
     });
 
     // Responsive sidebar toggle for mobile
